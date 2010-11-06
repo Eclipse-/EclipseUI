@@ -18,6 +18,9 @@ TukuiCF["fonts"] = {
 	----- [[     General Fonts     ]] -----
 	
 	["general_font"] = TukuiCF.media.custom_font_3,	
+	["general_font_size"] = 11,
+	["general_font_style"] = "THINOUTLINE",
+	
 	["damage_font"] = TukuiCF.media.dmgfont,
 	
 	
