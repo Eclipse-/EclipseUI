@@ -8,7 +8,7 @@ if not db.enable then return end
 
 local DummyShift = CreateFrame("Frame","DummyShiftBar",UIParent)
 local TukuiShift = CreateFrame("Frame","TukuiShiftBar",UIParent)
-if db.vertical_shapeshift then
+if TukuiDB.myclass ~= "SHAMAN" and db.vertical_shapeshift == true then
 	TukuiDB.CreatePanel(TukuiShift, db.stancebuttonsize, db.stancebuttonsize / 2, "TOPLEFT", 8, -40)
 else
 	TukuiDB.CreatePanel(TukuiShift, db.stancebuttonsize / 2, db.stancebuttonsize, "TOPLEFT", 8, -40)
@@ -41,7 +41,7 @@ SLASH_SHOWMOVEBUTTON1 = "/mss"
 SlashCmdList["SHOWMOVEBUTTON"] = showmovebutton
 
 -- hide it if not needed and stop executing code
-if TukuiCF.actionbar.hideshapeshift then TukuiShift:Hide() return end
+if db.hideshapeshift == true then TukuiShift:Hide() return end
 
 -- create the shapeshift bar if we enabled it
 local bar = CreateFrame("Frame", "TukuiShapeShift", TukuiShift, "SecureHandlerStateTemplate")
@@ -75,14 +75,14 @@ bar:SetScript("OnEvent", function(self, event, ...)
 			button:SetSize(db.stancebuttonsize, db.stancebuttonsize)
 			button:SetParent(DummyShift)
 			if i == 1 then
-				if db.vertical_shapeshift then
+				if db.vertical_shapeshift == true then
 					button:SetPoint("TOPLEFT", TukuiShiftBar, "BOTTOMLEFT", 0, -3)
 				else
 					button:SetPoint("TOPLEFT", TukuiShiftBar, "TOPRIGHT", 3, 0)
 				end
 			else
 				local previous = _G["ShapeshiftButton"..i-1]
-				if db.vertical_shapeshift then
+				if db.vertical_shapeshift == true then
 					button:SetPoint("TOP", previous, "BOTTOM", 0, -db.buttonspacing)
 				else
 					button:SetPoint("LEFT", previous, "RIGHT", db.buttonspacing, 0)

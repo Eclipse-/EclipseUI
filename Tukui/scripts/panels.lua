@@ -135,7 +135,30 @@ else
 		petbg:SetPoint("BOTTOMRIGHT", crtabs, "TOPRIGHT", 0, 3)
 	end
 end
-	
+
+if not db.hideshapeshift then
+	local shiftbg = CreateFrame("Frame", "TukuiShapeShiftBarBackground", UIParent)
+	shiftbg:RegisterEvent("PLAYER_LOGIN")
+	shiftbg:RegisterEvent("PLAYER_ENTERING_WORLD")
+	shiftbg:RegisterEvent("UPDATE_SHAPESHIFT_FORMS")
+	shiftbg:RegisterEvent("UPDATE_SHAPESHIFT_FORM")
+	shiftbg:SetScript("OnEvent", function(self, event, ...)
+		local forms = GetNumShapeshiftForms()
+		if forms > 0 then
+			if db.vertical_shapeshift == true then
+				shiftbg:SetWidth(db.stancebuttonsize)
+				shiftbg:SetHeight((db.stancebuttonsize * forms) + ((db.buttonspacing * forms) - 3 ))
+
+				shiftbg:SetPoint("TOPLEFT", _G["ShapeshiftButton1"], "TOPLEFT")
+			else
+				shiftbg:SetWidth((db.stancebuttonsize * forms) + ((db.buttonspacing * forms) - 3))
+				shiftbg:SetHeight(db.stancebuttonsize)
+
+				shiftbg:SetPoint("TOPLEFT", _G["ShapeshiftButton1"], "TOPLEFT")
+			end
+		end
+	end)
+end
 
 ----- [[     Battleground Statistics Frame     ]] -----
 

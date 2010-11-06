@@ -12,7 +12,7 @@ if TukuiDB.myclass == "SHAMAN" then
 		MultiCastActionBarFrame:SetParent(DummyShiftBar)
 		MultiCastActionBarFrame:ClearAllPoints()
 		MultiCastActionBarFrame:SetPoint("TOPLEFT", TukuiShiftBar, "TOPRIGHT", TukuiDB.Scale(0), TukuiDB.Scale(8))
-		
+
 		hooksecurefunc("MultiCastActionButton_Update",function(actionbutton) if not InCombatLockdown() then actionbutton:SetAllPoints(actionbutton.slotButton) end end)
  
 		MultiCastActionBarFrame.SetParent = TukuiDB.dummy
