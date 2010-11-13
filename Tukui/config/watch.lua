@@ -46,7 +46,9 @@ TukuiDB.remindbuffs = {
 	},
 	DEATHKNIGHT = {
 		57330, -- horn of Winter
-		31634, -- Shaman Strength of Earth Totem
+		31634, -- strength of earth totem
+		6673, -- battle Shout
+		93435, -- roar of courage (hunter pet)
 	},
 }
 
@@ -75,6 +77,8 @@ if TukuiCF["arena"].spelltracker == true then
 		[15487] = 45, -- silence priest
 		[34490] = 20, -- i hate hunter silencing shot
 		[85285] = 10, -- paladin got a kick now? lol
+		[80964] = 10, -- feral skull bash (cat) (NOTE: 60 seconds if not feral specced)
+		[80965] = 10, -- feral skull bash (bear) (NOTE: 60 seconds if not feral specced)
 	}
 end
 
